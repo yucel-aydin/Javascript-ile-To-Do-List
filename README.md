@@ -16,7 +16,7 @@ Linux için;
     cd Javascript-ile-To-Do-List
     code .
 # Live Demo
-[Demoyu Aç](https://brawny-veil-kettledrum.glitch.me)
+[Demoyu Aç](https://dear-ultra-dandelion.glitch.me)
 
 # Contributing
 Pull requestler kabul edilir. Büyük değişiklikler için, lütfen önce neyi değiştirmek istediğiniz tartışmak için bir konu açınız.
