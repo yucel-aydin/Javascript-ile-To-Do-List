@@ -15,25 +15,32 @@ for (let i = 0; i < liList.length; i++) {
   removeBtn.onclick = removeElement;
   liList[i].append(removeBtn);
 
-  var checkbox = document.createElement('input');
+  var checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.name = "chck";
   checkbox.value = "value";
-  checkbox.className="checkElement"
+  checkbox.className = "checkElement";
   checkbox.onclick = check;
   liList[i].append(checkbox);
 }
 
 // Listenen eleman seçilince üstü çizili ve checked olması
 function check() {
+  if (this.checked) {
     this.parentElement.classList.toggle("checked");
-  toastTitle.innerHTML = "Başarılı";
-  toastDescription.innerHTML = "'"+this.parentElement.innerText.replace("\nX","")+"' "+"Elamanı Seçildi.";
-  toast.classList.remove("bg-danger");
-  toast.classList.add("bg-success");
-  $(".toast").toast("show");
+    toastTitle.innerHTML = "Başarılı";
+    toastDescription.innerHTML =
+      "'" +
+      this.parentElement.innerText.replace("\nX", "") +
+      "' " +
+      "Elamanı Seçildi.";
+    toast.classList.remove("bg-danger");
+    toast.classList.add("bg-success");
+    $(".toast").toast("show");
+  }else{
+    this.parentElement.classList.toggle("checked");
+  }
 }
-
 // Silme iconuna basılınca ilgili li elementini kaldırır.
 function removeElement() {
   this.parentElement.remove();
@@ -57,14 +64,20 @@ function newElement() {
     liNew.innerHTML = taskInput.value;
     taskInput.value = "";
 
-    liNew.onclick = check;
-
     let removeBtn = document.createElement("span");
     removeBtn.textContent = "X";
     removeBtn.classList.add("remove");
     removeBtn.onclick = removeElement;
-
     liNew.append(removeBtn);
+
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = "chck";
+    checkbox.value = "value";
+    checkbox.className = "checkElement";
+    checkbox.onclick = check;
+    liNew.append(checkbox);
+
     ulElement.append(liNew);
 
     toastTitle.innerHTML = "Başarılı";
